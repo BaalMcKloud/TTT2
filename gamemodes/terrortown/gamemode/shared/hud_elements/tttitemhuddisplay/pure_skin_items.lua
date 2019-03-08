@@ -89,7 +89,7 @@ if CLIENT then
 
 						surface.SetFont("ItemInfoFont")
 
-						local infoW, infoH = surface.GetTextSize(info)
+						local infoW, infoH = surface.GetAdvancedTextSize(info)
 						infoW = infoW * self.scale
 						infoH = infoH * self.scale
 

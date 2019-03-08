@@ -155,7 +155,7 @@ if CLIENT then
 			--calculate the scale multplier for role text
 			surface.SetFont("PureSkinRole")
 
-			local role_text_width = surface.GetTextSize(string.upper(text)) * scale
+			local role_text_width = surface.GetAdvancedTextSize(string.upper(text)) * scale
 			local role_scale_multiplier = (w - lpw - 2 * pad) / role_text_width
 
 			if calive and cactive and isfunction(secondaryRoleInformationFunc) then
@@ -164,7 +164,7 @@ if CLIENT then
 				if secInfoTbl and secInfoTbl.text then
 					surface.SetFont("PureSkinBar")
 
-					local sri_text_width = surface.GetTextSize(string.upper(secInfoTbl.text)) * scale
+					local sri_text_width = surface.GetAdvancedTextSize(string.upper(secInfoTbl.text)) * scale
 
 					role_scale_multiplier = (w - sri_text_width - lpw - 2 * pad - 3 * sri_text_width_padding) / role_text_width
 				end
@@ -186,7 +186,7 @@ if CLIENT then
 					surface.SetFont("PureSkinBar")
 
 					local sri_text_caps = string.upper(secInfoTbl.text)
-					local sri_text_width = surface.GetTextSize(sri_text_caps) * scale
+					local sri_text_width = surface.GetAdvancedTextSize(sri_text_caps) * scale
 					local sri_margin_top_bottom = 8 * scale
 					local sri_width = sri_text_width + sri_text_width_padding * 2
 					local sri_xoffset = w2 - sri_width - pad

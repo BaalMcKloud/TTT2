@@ -82,7 +82,7 @@ function MSTACK:WrapText(text, width, font)
 	surface.SetFont(font or "DefaultBold")
 
 	-- Any wrapping required?
-	local w = surface.GetTextSize(text)
+	local w = surface.GetAdvancedTextSize(text)
 
 	if w <= width then
 		return {text} -- Nope, but wrap in table for uniformity
@@ -102,7 +102,7 @@ function MSTACK:WrapText(text, width, font)
 		local l = #lines
 		local added = lines[l] .. " " .. wrd
 
-		w = surface.GetTextSize(added)
+		w = surface.GetAdvancedTextSize(added)
 
 		if w > width then
 			table.insert(lines, wrd) -- New line needed

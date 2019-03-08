@@ -5,8 +5,12 @@ DEFINE_BASECLASS(base)
 HUDELEMENT.Base = base
 
 if CLIENT then
+	function surface.GetAdvancedTextSize(text)
+		return 0.5 * surface.GetTextSize(text)
+	end
+
 	local defaultColor = Color(49, 71, 94)
-	local shadowColor = Color(0, 0, 0, 200)
+	local shadowColor = Color(0, 0, 0, 220)
 
 	function HUDELEMENT:DrawBg(x, y, w, h, c)
 		DrawHUDElementBg(x, y, w, h, c)
@@ -42,12 +46,14 @@ if CLIENT then
 	function HUDELEMENT:ShadowedText(text, font, x, y, color, xalign, yalign)
 		local tmpCol = Color(shadowColor.r, shadowColor.g, shadowColor.b, color.a)
 
+		draw.SimpleText(text, font, x + 4, y + 4, tmpCol, xalign, yalign)
 		draw.SimpleText(text, font, x + 2, y + 2, tmpCol, xalign, yalign)
-		draw.SimpleText(text, font, x + 1, y + 1, tmpCol, xalign, yalign)
 		draw.SimpleText(text, font, x, y, color, xalign, yalign)
 	end
 
 	function HUDELEMENT:AdvancedText(text, font, x, y, color, xalign, yalign, shadow, scale)
+		scale = scale * 0.5
+
 		local mat
 		if isvector(scale) or scale ~= 1.0 then
 			mat = Matrix()
@@ -55,8 +61,8 @@ if CLIENT then
 			mat:Scale(isvector(scale) and scale or Vector(scale, scale, scale))
 			mat:Translate(-Vector(ScrW() / 2, ScrH() / 2))
 
-			render.PushFilterMag(TEXFILTER.ANISOTROPIC)
-			render.PushFilterMin(TEXFILTER.ANISOTROPIC)
+			render.PushFilterMag(TEXFILTER.LINEAR)
+			render.PushFilterMin(TEXFILTER.LINEAR)
 
 			cam.PushModelMatrix(mat)
 

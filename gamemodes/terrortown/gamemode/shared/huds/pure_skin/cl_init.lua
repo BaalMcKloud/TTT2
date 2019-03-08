@@ -1,12 +1,13 @@
 local surface = surface
 
 -- Fonts
-surface.CreateFont("PureSkinMSTACKImageMsg", {font = "Trebuchet24", size = 21, weight = 1000})
-surface.CreateFont("PureSkinMSTACKMsg", {font = "Trebuchet18", size = 15, weight = 900})
-surface.CreateFont("PureSkinRole", {font = "Trebuchet24", size = 30, weight = 700})
-surface.CreateFont("PureSkinBar", {font = "Trebuchet24", size = 21, weight = 1000})
-surface.CreateFont("PureSkinWep", {font = "Trebuchet24", size = 21, weight = 1000})
-surface.CreateFont("PureSkinWepNum", {font = "Trebuchet24", size = 21, weight = 700})
+surface.CreateFont("PureSkinMSTACKImageMsg", {font = "Trebuchet24", size = 42, weight = 1000})
+surface.CreateFont("PureSkinMSTACKMsg", {font = "Trebuchet18", size = 30, weight = 900})
+surface.CreateFont("PureSkinRole", {font = "Trebuchet24", size = 60, weight = 600})
+surface.CreateFont("PureSkinBarx1_2", {font = "Trebuchet24", size = 21, weight = 1000})
+surface.CreateFont("PureSkinBar", {font = "Trebuchet24", size = 40, weight = 1000})
+surface.CreateFont("PureSkinWep", {font = "Trebuchet24", size = 42, weight = 1000})
+surface.CreateFont("PureSkinWepNum", {font = "Trebuchet24", size = 42, weight = 700})
 
 -- base drawing functions
 include("cl_drawing_functions.lua")
